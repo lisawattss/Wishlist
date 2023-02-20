@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>uWish - Wishlist</title>
+    <link rel="stylesheet" th:href="'/style.css'" href="../static/style.css">
+    <link rel="stylesheet" th:href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
+<body>
+<a href="/uwish/wishlist">Home</a>
+
+<h1>uWish</h1>
+<h2>Wishlist</h2>
+
+<!-- Add new wish -->
+<a href="/uwish/addwish">Add New Wish</a>
+
+<!-- Wishlist table -->
+<table>
+    </tr>
+    <tr th:each="wish : ${wishlist}"> <!-- For each loop creates wishlist by iterating through wishes -->
+        <th><a th:href="'/uwish/wish/' + ${currentPage} + '/' + ${wish.id}" th:text="${wish.name}"></a></th>
+        <th>  ~  </th>
+        <th th:text="${wish.price} + '0 DKK'"></th>
+        <th>  ~  </th>
+        <th><a th:href="${wish.link}"><i class="fa-solid fa-link"></i></a></th>
+        <th>  ~  </th>
+        <th><a th:href="'/uwish/editwish/' + ${wish.getId}"><i class="fa-solid fa-file-pen"></i></a></th>
+        <th>  ~  </th>
+        <th><a th:href="'/uwish/deletewish/' + ${wish.getId}"><i class="fa-solid fa-trash"></i></a></a></th>
+
+    </tr>
+</table>
+
+<!-- Page turn -->
+<div>
+    <span th:if="${showPrev}">
+        <a th:href="'/uwish/wishlist?page=' + ${currentPage-1}" th:text="Previous"></a>
+    </span>
+    <span th:each="page : ${pages}">
+        <span th:if="${currentPage == page}" th:text="${page}"></span>
+        <a th:if="${currentPage != page}" th:href="'/uwish/wishlist?page=' + ${page}" th:text="${page}"></a>
+    </span>
+    <span th:if="${showNext}">
+        <a th:href="'/uwish/wishlist?page=' + ${currentPage+1}" th:text="Next"></a>
+    </span>
+</div>
+
+<!-- Logged in as + Logout-->
+<div>
+    <p th:text="${'Logged in as: ' + #httpServletRequest.remoteUser}"></p>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout"/>
+    </form>
+</div>
+
+</body>
+</html>

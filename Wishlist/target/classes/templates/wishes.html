@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Wishlist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a href="/">Home</a>
+
+<h1>Wishlist</h1>
+
+    <!--<p><a href="/customers">Customers</a></p>-->
+
+    <a href="/add">Add New Wish</a>
+
+
+    <table style="text-align:left">
+        <tr>
+            <th>Wish</th>
+            <th>Price</th>
+            <th>Link</th>
+        </tr>
+        <tr th:each="wish : ${wishes}">
+            <th><a th:href="'/wish/' + ${currentPage} + '/' + ${wish.id}" th:text="${wish.name}"></a></th>
+            <th th:text="${wish.price}"></th>
+            <th th:text="${wish.link}"></th>
+        </tr>
+    </table>
+    <div>
+
+        <span th:if="${showPrev}">
+            <a th:href="'/?page=' + ${currentPage-1}" th:text="Previous"></a>
+        </span>
+
+        <span th:each="page : ${pages}">
+            <span th:if="${currentPage == page}" th:text="${page}"></span>
+            <a th:if="${currentPage != page}" th:href="'/?page=' + ${page}" th:text="${page}"></a>
+        </span>
+
+        <span th:if="${showNext}">
+            <a th:href="'/?page=' + ${currentPage+1}" th:text="Next"></a>
+        </span>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    font-size: 18px;
+    font-family: Lucida Handwriting;
+    color: navy;
+    background-image: url(winter.jpg);
+    text-align: center;
+}
+
+.container{
+    width: 100
+}
+
+form {
+
+    background-color: transparent;
+    padding: 20px;
+    margin:30px;
+}
+
+td, table {
+    #border-style: dashed;
+    #border-width: 1px;
+    #border-color: blue;
+    padding:10px;
+    border: 1px blue dashed;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.italic:hover {
+    font-style: normal;
+}
+
+.tableHeader td {
+    border-color: transparent;
+}
+
+a:hover {
+    color: blue;
+}
+
+#contact {
+    float: right;
+}
+
+#content {
+    float: left;
+    width: 500px;
+}
+
+img {
+    width:500px;
+}

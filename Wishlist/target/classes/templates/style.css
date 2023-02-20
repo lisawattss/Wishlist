@@ -1,0 +1,55 @@
+body {
+    font-size: 18px;
+    color: navy;
+    background-image: url(winter.jpg);
+    background-color: white;
+}
+
+form {
+    background-color: grey;
+    padding: 20px;
+    margin:30px;
+}
+
+td, table {
+    #border-style: dashed;
+    #border-width: 1px;
+    #border-color: red;
+    padding:10px;
+    border: 1px red dashed;
+}
+
+img {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.italic:hover {
+    font-style: normal;
+}
+
+.tableHeader td {
+    border-color: green;
+}
+
+a:hover {
+    color: red;
+}
+
+#contact {
+    float: right;
+}
+
+#content {
+    float: left;
+    width: 500px;
+}
+
+img {
+    width:500px;
+}

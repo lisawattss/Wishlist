@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>uWish - Login</title>
+    <link rel="stylesheet" th:href="'/style.css'" href="../static/style.css">
+</head>
+<body>
+<h1>uWish</h1>
+<h2>Login</h2>
+
+<form th:action="@{/uwish/login}" method="POST">
+    <div><label>Username: <input type="text" name="username"/> </label></div>
+    <div><label>Password: <input type="password" name="password"/> </label></div>
+    <div><input type="submit" value="Login"/></div>
+</form>
+
+<div th:if="${param.error}">Invalid username or password</div>
+
+<!-- Navigate back to front page -->
+<a href="/uwish">Back</a>
+
+</body>
+</html>

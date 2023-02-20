@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>uWish - Sign Up</title>
+    <link rel="stylesheet" th:href="'/style.css'" href="../static/style.css">
+</head>
+<body>
+<h1>uWish</h1>
+<h2>Sign Up</h2>
+
+<form action="/uwish/savewisher" th:object="${wisher}" method="POST">
+    <div><label>Username: <input type="text" th:field="*{usn}"/></label></div>
+    <div><label>Password: <input type="password" th:field="*{psw}"/></label></div>
+    <div><input th:if="${id != null}" type="hidden" th:field="*{id}"/></div>
+    <div><input type="submit" value="Sign Up"></div>
+</form>
+
+<!-- Navigate back to front page -->
+<a href="/uwish">Back</a>
+
+</body>
+</html>

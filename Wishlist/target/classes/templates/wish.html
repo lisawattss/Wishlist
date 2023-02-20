@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Wish</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a href="/">Home</a>
+
+    <h1>Wish</h1>
+    <div>
+        <p><a th:href="'/?page=' + ${page}">Back to wishes</a></p>
+    </div>
+    <div>
+        <p><a th:href="'/edit/' + ${wish.id}">Edit wish</a></p>
+    </div>
+    <table>
+        <tr>
+            <th>Wish</th>
+            <th th:text="${wish.name}"></th>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <th th:text="${wish.price}"></th>
+        </tr>
+        <tr>
+            <th>Link</th>
+            <th th:text="${wish.link}"></th>
+        </tr>
+        <tr>
+            <th>Image</th>
+            <th th:text="${wish.img}"></th>
+        </tr>
+    </table>
+
+</body>
+</html>

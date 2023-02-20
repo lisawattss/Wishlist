@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>uWish - Add/Edit Wish</title>
+    <link rel="stylesheet" th:href="'/style.css'" href="../static/style.css">
+</head>
+<body>
+<a href="/uwish/wishlist">Home</a>
+
+<h1>uWish</h1>
+<h2>Add/Edit Wish</h2>
+
+<form action="/uwish/savewish" th:object="${wish}" method="POST">
+    <div>Wish: <input type="text" th:field="*{name}"/></div>
+    <div>Description: <input type="text" th:field="*{description}"/></div>
+    <div>Price: <input type="number" th:field="*{price}"/></div>
+    <div>Link: <input type="text" th:field="*{link}"/></div>
+    <!--<div>Image: <input type="text" th:field="*{img}"/></div>-->
+    <input th:if="${wish.id != null}" type="hidden" th:field="*{id}"/> <!--Adds a secret ID-->
+    <input type="submit" value="Save wish">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>Add New Wish</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a href="/">Home</a>
+
+    <h1>Add New Wish</h1>
+
+    <form action="/save" th:object="${wish}" method="POST">
+        <div>Wish: <input type="text" th:field="*{name}"/></div>
+        <div>Price: <input type="text" th:field="*{price}"/></div>
+        <div>Link: <input type="text" th:field="*{link}"/></div>
+        <div>Image: <input type="text" th:field="*{img}"/></div>
+        <input th:if="${wish.id != null}" type="hidden" th:field="*{id}"/> <!--Adds a secret ID-->
+        <input type="submit" value="Save wish">
+    </form>
+
+</body>
+</html>
